@@ -1,55 +1,60 @@
 #include "main.h"
 
 /**
- * _printf - prints a formatted string to the standard output
- * @format: the format string
- * @args: the arguments
+ * _printf - custom printf function
+ * @format: format specifier
  *
- * Return: the number of characters printed
+ * Return: number of characters printed
  */
-
 int _printf(const char *format, ...)
 {
 	va_list args;
+	int printed_chars = 0;
 
-	int count = 0;
+	if (!format)
+		return (-1);
 
 	va_start(args, format);
 
-	while (*format != '\0')
+	while (*format)
 	{
 		if (*format == '%')
 		{
-			switch (*++format)
+			format++;
+			if (*format == '\0')
+				return (-1);
+
+			switch (*format)
 			{
 			case 'c':
-				count += nk_print_char(args);
+				printed_chars += nk_print_char(args);
 				break;
 			case 's':
-				count += nk_print_str(args);
+				printed_chars += nk_print_str(args);
 				break;
 			case '%':
-				count += print_pct();
+				printed_chars += print_pct();
 				break;
 			case 'd':
-				count += print_decimal(args);
-				break;
 			case 'i':
-				count += print_int(args);
+				printed_chars += print_int(args);
 				break;
 			default:
+				_putchar('%');
+				_putchar(*format);
+				printed_chars += 2;
 				break;
 			}
 		}
 		else
 		{
-			write(1, format, 1);
-			count++;
+			_putchar(*format);
+			printed_chars++;
 		}
 		format++;
 	}
-
 	va_end(args);
 
-	return (count);
+	return (printed_chars);
 }
+
