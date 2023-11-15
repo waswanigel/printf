@@ -36,6 +36,8 @@ int _printf(const char *format, ...)
 				printed_chars += print_pct();
 				break;
 			case 'd':
+				printed_chars += print_decimal(args);
+				break;
 			case 'i':
 				printed_chars += print_int(args);
 				break;
