@@ -9,39 +9,32 @@ int print_int(va_list args)
 {
 	int n1 = va_arg(args, int);
 
-	int m1, end = n1 % 10, num, exp = 1;
+	int m1 = n1, end = n1 % 10, num, exp = 1;
 
-	int i = 1;
+	int i = 0;
 
-	n1 = n1 / 10;
-
-	m1 = n1;
-
-	if (end < 0)
+	if (n1 < 0)
 	{
 		_putchar('-');
 		m1 = -m1;
-		n1 = -n1;
 		end = -end;
 		i++;
 	}
-	if (m1 > 0)
+
+	while (m1 / exp >= 10)
 	{
-		while(m1 / 10 != 0)
-		{
-			exp = exp * 10;
-			n1 = n1 / 10;
-		}
-		m1 = n1;
-		while (exp > 0)
-		{
-			num = m1 / exp;
-			_putchar(num + '0');
-			m1 = m1 - (num * exp);
-			exp = exp / 10;
-			i++;
-		}
+		exp *= 10;
 	}
+	
+	while (exp > 0)
+	{
+		num = m1 / exp;
+		_putchar(num + '0');
+		m1 = m1 % exp;
+		exp /= 10;
+		i++;
+	}
+
 	_putchar(end + '0');
 
 	return (i);
@@ -57,39 +50,31 @@ int print_decimal(va_list args)
 {
 	int n1 = va_arg(args, int);
 
-	int m1, end = n1 % 10, num, exp = 1;
+	int m1 = n1, end = n1 % 10, num, exp = 1;
 
-	int i = 1;
+	int i = 0;
 
-	n1 = n1 / 10;
-
-	m1 = n1;
-
-	if (end < 0)
+	if (n1 < 0)
 	{
 		_putchar('-');
 		m1 = -m1;
-		n1 = -n1;
 		end = -end;
 		i++;
 	}
-	if (m1 > 0)
+	while (m1 / exp >= 10)
 	{
-		while(m1 / 10 != 0)
-		{
-			exp = exp * 10;
-			n1 = n1 / 10;
-		}
-		m1 = n1;
-		while (exp > 0)
-		{
-			num = m1 / exp;
-			_putchar(num + '0');
-			m1 = m1 - (num * exp);
-			exp = exp / 10;
-			i++;
-		}
+		exp *= 10;
 	}
+
+	while (exp > 0)
+	{
+		num = m1 / exp;
+		_putchar(num + '0');
+		m1 = m1 - (num * exp);
+		exp = exp / 10;
+		i++;
+	}
+
 	_putchar(end + '0');
 
 	return (i);
