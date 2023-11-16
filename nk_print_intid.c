@@ -7,75 +7,50 @@
 
 int print_int(va_list args)
 {
-	int n1 = va_arg(args, int);
+	int n = va_arg(args, int);
+	unsigned int m;
+	int count = 0;
 
-	int m1 = n1, end = n1 % 10, num, exp = 1;
-
-	int i = 0;
-
-	if (n1 < 0)
+	if (n < 0)
 	{
 		_putchar('-');
-		m1 = -m1;
-		end = -end;
-		i++;
+		m = -n;
+		count++;
 	}
-
-	while (m1 / exp >= 10)
+	else
 	{
-		exp *= 10;
+		m = n;
 	}
-	
-	while (exp > 0)
+
+	if (m >= 10)
 	{
-		num = m1 / exp;
-		_putchar(num + '0');
-		m1 = m1 % exp;
-		exp /= 10;
-		i++;
+		count += print_int_recursion(m / 10);
 	}
 
-	_putchar(end + '0');
+	_putchar(m % 10 + '0');
 
-	return (i);
+	count++;
+
+	return (count);
 }
 
 /**
- * print_decimal - prints a decimal number
- * @args: arguments
- * Return: no. of printed xters
+ * print_int_recursion - prints each digit of the number
+ * @n: number
+ * Return: number of digits
  */
 
-int print_decimal(va_list args)
+int print_int_recursion(unsigned int n)
 {
-	int n1 = va_arg(args, int);
+	int count = 0;
 
-	int m1 = n1, end = n1 % 10, num, exp = 1;
-
-	int i = 0;
-
-	if (n1 < 0)
+	if (n >= 10)
 	{
-		_putchar('-');
-		m1 = -m1;
-		end = -end;
-		i++;
-	}
-	while (m1 / exp >= 10)
-	{
-		exp *= 10;
+		count += print_int_recursion(n / 10);
 	}
 
-	while (exp > 0)
-	{
-		num = m1 / exp;
-		_putchar(num + '0');
-		m1 = m1 - (num * exp);
-		exp = exp / 10;
-		i++;
-	}
+	_putchar(n % 10 + '0');
+	count++;
 
-	_putchar(end + '0');
-
-	return (i);
+	return (count);
 }

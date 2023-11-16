@@ -27,6 +27,8 @@ int print_int(va_list args);
 int print_decimal(va_list args);
 int _putchar(char c);
 int nk_print_binary(va_list args);
+int print_binary(va_list args);
+int print_int_recursion(unsigned int n);
 
 #endif /* MAIN_H */
 
