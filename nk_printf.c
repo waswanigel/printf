@@ -5,6 +5,7 @@ int handle_str(va_list args);
 int handle_pct(void);
 int handle_int(va_list args);
 int handle_unsigned_int_binary(va_list args);
+
 /**
  * _printf - custom printf function
  * @format: format specifier
