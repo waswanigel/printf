@@ -1,4 +1,10 @@
 #include "main.h"
+/* Function prototypes */
+int handle_char(va_list args);
+int handle_str(va_list args);
+int handle_pct(void);
+int handle_int(va_list args);
+int handle_unsigned_int_binary(va_list args);
 /**
  * _printf - custom printf function
  * @format: format specifier
@@ -25,22 +31,20 @@ int _printf(const char *format, ...)
 			switch (*format)
 			{
 				case 'c':
-					printed_chars += nk_print_char(args);
+					printed_chars += handle_char(args);
 					break;
 				case 's':
-					printed_chars += nk_print_str(args);
+					printed_chars += handle_str(args);
 					break;
 				case '%':
-					printed_chars += print_pct();
+					printed_chars += handle_pct();
 					break;
 				case 'd':
-					printed_chars += print_int(args);
-					break;
 				case 'i':
-					printed_chars += print_int(args);
+					printed_chars += handle_int(args);
 					break;
 				case 'b':
-					printed_chars += print_unsigned_int_binary(args);
+					printed_chars += handle_unsigned_int_binary(args);
 					break;
 				default:
 					_putchar('%');
