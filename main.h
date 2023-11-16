@@ -29,6 +29,8 @@ int _putchar(char c);
 int nk_print_binary(va_list args);
 int print_binary(va_list args);
 int print_int_recursion(unsigned int n);
+int print_unsigned_int_binary(va_list args);
+int print_unsigned_int_binary_recursion(unsigned int n);
 
 #endif /* MAIN_H */
 

@@ -41,6 +41,9 @@ int _printf(const char *format, ...)
 			case 'i':
 				printed_chars += print_int(args);
 				break;
+			case 'b':
+				printed_chars += print_unsigned_int_binary(args);
+				break;
 			default:
 				_putchar('%');
 				_putchar(*format);
