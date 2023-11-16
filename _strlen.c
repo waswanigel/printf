@@ -4,7 +4,7 @@
  * _strlen - returns lenth of a string
  * @s: the string
  *
- * Return: lenght of string
+ * Return: length of string
  */
 int _strlen(char *s)
 {
@@ -21,10 +21,10 @@ int _strlen(char *s)
 }
 
 /**
- * _strlen - returns lenth of a const char ptr string
+ * _strlench - returns lenth of a const char ptr string
  * @s: the char ptr
  *
- * Return: lenght of string
+ * Return: length of string
  */
 int _strlench(const char *s)
 {

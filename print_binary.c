@@ -9,7 +9,7 @@ int print_unsigned_int_binary(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
 	int count = 0;
-   
+
 	if (n == 0)
 	{
 		_putchar('0');
@@ -41,4 +41,3 @@ int print_unsigned_int_binary_recursion(unsigned int n)
 
 	return (count);
 }
-

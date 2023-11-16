@@ -33,4 +33,3 @@ int print_unsigned_int_binary(va_list args);
 int print_unsigned_int_binary_recursion(unsigned int n);
 
 #endif /* MAIN_H */
-
