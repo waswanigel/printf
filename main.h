@@ -1,9 +1,12 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <stdarg.h>
 #include <stddef.h>
 #include <unistd.h>
+#include <limits.h>
 
 /**
  * struct specs - a specifier struct
@@ -13,7 +16,7 @@
 typedef struct specs
 {
 	char *specifier;
-	int (*f)(va_list args);
+	int (*f)();
 } spcfy_dt;
 
 /* Function prototypes */
@@ -40,5 +43,5 @@ int print_str(va_list val);
 int print_address(va_list val);
 int print_hexa_extra(unsigned long int num);
 int print_rev_str(va_list val);
-int print_rot13(va_list val)
+int print_rot13(va_list val);
 #endif /* MAIN_H */

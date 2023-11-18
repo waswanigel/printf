@@ -32,7 +32,7 @@ int print_unsigned(va_list args)
 		{
 			digit = no / ex;
 			_putchar(digit + '0');
-			np = no - (digit * ex);
+			no = no - (digit * ex);
 			ex = ex / 10;
 			i++;
 		}
