@@ -1,8 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <stdarg.h>
 #include <stddef.h>
 #include <unistd.h>
@@ -37,4 +35,8 @@ int print_unsigned(va_list args);
 int print_octa(va_list val);
 int print_hexa(va_list val);
 int print_HEXA(va_list val);
+int print_HEXA_extra(unsigned int num);
+int print_str(va_list val);
+int print_address(va_list val);
+int print_hexa_extra(unsigned long int num);
 #endif /* MAIN_H */
