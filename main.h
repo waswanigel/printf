@@ -39,4 +39,6 @@ int print_HEXA_extra(unsigned int num);
 int print_str(va_list val);
 int print_address(va_list val);
 int print_hexa_extra(unsigned long int num);
+int print_rev_str(va_list val);
+int print_rot13(va_list val)
 #endif /* MAIN_H */
