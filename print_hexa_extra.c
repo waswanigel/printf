@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * print_hexa_extra - converts to hexadecimal
- * @val: variable parameter
+ * @num: variable parameter
  * Return: counter
  */
 int print_hexa_extra(unsigned long int num)
