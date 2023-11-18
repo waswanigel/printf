@@ -1,6 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <stdarg.h>
 #include <stddef.h>
 #include <unistd.h>
@@ -31,5 +33,8 @@ int print_binary(va_list args);
 int print_int_recursion(unsigned int n);
 int print_unsigned_int_binary(va_list args);
 int print_unsigned_int_binary_recursion(unsigned int n);
-
+int print_unsigned(va_list args);
+int print_octa(va_list val);
+int print_hexa(va_list val);
+int print_HEXA(va_list val);
 #endif /* MAIN_H */
